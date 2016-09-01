@@ -1,0 +1,62 @@
+<head>
+  <title>tes-meteor</title>
+</head>
+
+<body>
+  {{> todo}}
+  <hr>
+  <br><br>
+
+  {{> hello}}
+  <br><br>
+  <hr>
+  <br><br>
+  {{ > aritmatika}}
+</body>
+
+<template name="todo">
+  <p><input type="text" id="title"></p>
+  <p><input type="submit" id="insert" value="Add Todos"></p>
+
+  <h2>Todo Lists</h2>
+  <!-- <ul>
+    <li>Makan</li>
+    <li>Ngopi</li>
+    <li>Ngoding</li>
+  </ul> -->
+
+  <!-- {{#each getAllTodos}}
+  {{todo}}
+  {{/each}} -->
+
+</template>
+
+
+<template name="aritmatika">
+  nilai 1
+  <input type="text" id="nilai1" />
+
+  <br><br>
+  nilai 2
+  <input type="text" id="nilai2" />
+
+  <br><br>
+  <input type="button" id="tombolProses" value="Proses"/>
+  <!-- <a id="tombolProses" href="#">proses</a> -->
+  {{#if hasil}}
+    <p>hasil perhitungan = {{hasil}}</p>
+  {{else}}
+    <p>Masukan angka sebelum klik tombol proses</p>
+  {{/if}}
+</template>
+
+
+
+<template name="hello">
+  <p>{{helloWorld}}</p>
+
+  <p>nama saya adalah : {{myName}}</p>
+  <input type="text" id="name" />
+
+  <a id="clickMe" href="#">Klik Saya</a>
+</template>
