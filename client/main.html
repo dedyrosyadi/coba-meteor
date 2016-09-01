@@ -15,19 +15,17 @@
 </body>
 
 <template name="todo">
-  <p><input type="text" id="title"></p>
-  <p><input type="submit" id="insert" value="Add Todos"></p>
+  <form>
+    <p><input type="text" name="title" id="title"></p>
+    <p><input type="submit" id="insert" value="Add Todos"></p>
+  </form>
 
   <h2>Todo Lists</h2>
-  <!-- <ul>
-    <li>Makan</li>
-    <li>Ngopi</li>
-    <li>Ngoding</li>
-  </ul> -->
-
-  <!-- {{#each getAllTodos}}
-  {{todo}}
-  {{/each}} -->
+  <ul>
+    {{#each getAllTodos}}
+      <li>{{title}}</li>
+    {{/each}}
+  </ul>
 
 </template>
 
