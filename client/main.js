@@ -1,25 +1,18 @@
-Todos = new Meteor.Collection('todos');
+import { Todos } from '../imports/api/todos.js';
 
 Template.todo.helpers({
   getAllTodos:function(){
-    // return Todos.find({});
-  },
-
+    return Todos.find({}, { sort: { createdAt: -1 } });
+  }
 });
 
 Template.todo.events = {
-  'click #insert': function(e, t) {
+  'submit form': function(e, t) {
     e.preventDefault();
-
-    var title = t.find('#title').value;
-    // Todos.insert({
-    //     title: title;
-    // });
-    //
-    // console.log(Todos.find().count());
-    console.log(title);
-
-
+    var title = e.target.title.value;
+    Todos.insert({ title: title, createdAt: new Date() });
+    // alert("Data = "+title+ " berhasil ditambah!");
+    e.target.title.value ="";
   },
 }
 
