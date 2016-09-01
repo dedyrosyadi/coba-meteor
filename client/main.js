@@ -1,7 +1,4 @@
-// import { Todos } from '../imports/api/todos.js';
-
-import { Mongo } from 'meteor/mongo'; 
-Todos = new Mongo.Collection('todos');
+import { Todos } from '../imports/api/todos.js';
 
 Template.todo.helpers({
   getAllTodos:function(){
@@ -14,8 +11,8 @@ Template.todo.events = {
     e.preventDefault();
     var title = e.target.title.value;
     Todos.insert({ title: title, createdAt: new Date() });
-    // console.log("Data = "+title+ " berhasil ditambah!");
-    event.target.title.value ="";
+    // alert("Data = "+title+ " berhasil ditambah!");
+    e.target.title.value ="";
   },
 }
 
