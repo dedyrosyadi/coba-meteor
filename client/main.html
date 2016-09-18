@@ -3,7 +3,7 @@
 </head>
 
 <body>
-  {{> todo}}
+  {{> tasks}}
   <hr>
   <br><br>
 
@@ -14,7 +14,7 @@
   {{ > aritmatika}}
 </body>
 
-<template name="todo">
+<template name="tasks">
   <form>
     <p><input type="text" name="title" id="title"></p>
     <p><input type="submit" id="insert" value="Add Todos"></p>
@@ -22,8 +22,8 @@
 
   <h2>Todo Lists</h2>
   <ul>
-    {{#each getAllTodos}}
-      <li>{{title}}</li>
+    {{#each tasks}}
+      <li>{{title}} <span class="delete-title"><a href="#">hapus</a></span></li>
     {{/each}}
   </ul>
 

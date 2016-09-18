@@ -1,20 +1,56 @@
-import { Todos } from '../imports/api/todos.js';
+import { Tasks } from '../imports/api/tasks.js';
 
-Template.todo.helpers({
-  getAllTodos:function(){
-    return Todos.find({}, { sort: { createdAt: -1 } });
-  }
+// Template.todo.helpers({
+//   getAllTodos:function(){
+//     return Todos.find({}, { sort: { createdAt: -1 } });
+//   }
+// });
+//
+// Template.todo.events = {
+//   'submit form': function(e, t) {
+//     e.preventDefault();
+//     var title = e.target.title.value;
+//     Todos.insert({ title: title, createdAt: new Date() });
+//     // alert("Data = "+title+ " berhasil ditambah!");
+//     e.target.title.value ="";
+//   },
+// }
+
+
+Template.tasks.helpers({
+    tasks: function(){
+      // return tasks.find({}, {sort: {createdAt:} -1}});
+      return Tasks.find({}, { sort: { createdAt: -1 } });
+    }
 });
 
-Template.todo.events = {
-  'submit form': function(e, t) {
-    e.preventDefault();
-    var title = e.target.title.value;
-    Todos.insert({ title: title, createdAt: new Date() });
-    // alert("Data = "+title+ " berhasil ditambah!");
-    e.target.title.value ="";
-  },
-}
+Template.tasks.events({
+    'submit form': function(e, t){
+        e.preventDefault();
+        var title = e.target.title.value;
+
+        // console.log(title);
+
+        Tasks.insert({
+          title: title,
+          createdAt: new Date()
+        });
+
+        e.target.title.value ='';
+        t.$('#title').focus();
+
+        // return false;
+    },
+
+    'click .delete-title': function(e, t){
+      e.preventDefault();
+      if(confirm('Lanjutkan untuk menghapus ?')){
+        // Tasks.remove(this._id);
+        console.log(this);
+        alert(this);
+      }
+    }
+});
 
 Template.hello.helpers({
     helloWorld: function() {
